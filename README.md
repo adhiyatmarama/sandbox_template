@@ -1,6 +1,7 @@
 # Fancy-todo API
 
 This is the documentation for using FANCY TODO API. The base url for this API is http://localhost:3002
+
 This API is using email validator API
 
 ### 1. Register (If you Already have an account, you can skip this part)
@@ -31,7 +32,7 @@ This API is using email validator API
   * CODE: 200 
   * Content:
   
-    ```javascrip
+    ```javascript
     {
         "id": 16,
         "first_name": "Adhiyatma",
@@ -47,31 +48,33 @@ This API is using email validator API
   
   * Empty Requirement (empty request body)
     
-    *CODE: 400
-    *Content:
+    * CODE: 400
+    
+    * Content:
         
-        ```javascript
-        {
-            "status": 400,
-            "error": [
-                {
-                    "path": "first_name",
-                    "type": "Validation error",
-                    "msg": "Please input your name"
-                },
-                {
-                    "path": "password",
-                    "type": "Validation error",
-                    "msg": "Please input the password"
-                }
-            ]
-        }
-        ```
+      ```javascript
+            {
+                "status": 400,
+                "error": [
+                    {
+                        "path": "first_name",
+                        "type": "Validation error",
+                        "msg": "Please input your name"
+                    },
+                    {
+                        "path": "password",
+                        "type": "Validation error",
+                        "msg": "Please input the password"
+                    }
+                ]
+            }
+      ```
 
   * Email Validation Error
     
-    *CODE: 400
-    *Content:
+    *   CODE: 400
+
+    *   Content:
 
         Wrong format email
 
