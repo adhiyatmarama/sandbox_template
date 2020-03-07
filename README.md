@@ -9,6 +9,7 @@ This is the documentation for using FANCY TODO API. The base url for this API is
   /user/register
 
 * **METHOD**
+
   `GET`
 
 * **REQUEST BODY**
