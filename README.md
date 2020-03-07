@@ -98,7 +98,7 @@ This API is using email validator API
 
 * **URL**
   
-  /user/lo
+  /user/login
 
 * **METHOD**
   
@@ -126,7 +126,7 @@ This API is using email validator API
     }
     ```
 
-    **Save the token*
+    **Save the token**
 
 * **ERROR RESPONSE**
   
@@ -155,3 +155,85 @@ This API is using email validator API
             "msg": "wrong password"
         }
         ```
+
+### 2. Get TODOS
+
+* **URL**
+  
+  /todos
+
+* **METHOD**
+  
+  `GET`
+
+* **HEADERS**
+  
+  KEY:
+
+    * Token (the token you get after log-in)
+  
+
+* **SUCCESS RESPONSE**
+  
+  * CODE: 200 
+  * Content:
+  
+    ```javascript
+    [
+        {
+            "id": 20,
+            "title": "Menambahkan swal",
+            "description": "menambahkan swal pada delete",
+            "status": "On progress",
+            "due_date": "2020-03-07T00:00:00.000Z",
+            "createdAt": "2020-03-05T05:43:29.010Z",
+            "updatedAt": "2020-03-07T07:53:45.033Z",
+            "UserId": 1
+        },
+        {
+            "id": 38,
+            "title": "testing lagi",
+            "description": "testtest",
+            "status": "On progress",
+            "due_date": "2020-03-07T00:00:00.000Z",
+            "createdAt": "2020-03-05T12:22:59.608Z",
+            "updatedAt": "2020-03-07T07:53:52.387Z",
+            "UserId": 1
+        },
+        {
+            "id": 71,
+            "title": "fitur email verification",
+            "description": "menambahkan fitur email verification saat register di fancy todo",
+            "status": "Uncomplete",
+            "due_date": "2020-03-07T00:00:00.000Z",
+            "createdAt": "2020-03-07T03:39:05.852Z",
+            "updatedAt": "2020-03-07T07:54:04.130Z",
+            "UserId": 1
+        },
+        {
+            "id": 1,
+            "title": "Test error",
+            "description": "testing error",
+            "status": "Completed",
+            "due_date": "2020-04-08T00:00:00.000Z",
+            "createdAt": "2020-03-02T07:22:04.436Z",
+            "updatedAt": "2020-03-05T11:12:49.101Z",
+            "UserId": 1
+        }
+    ]
+    ```
+
+* **ERROR RESPONSE**
+  
+  * Server Error
+    
+    * CODE: 500
+    
+    * Content:
+        
+      ```javascript
+        {
+            "status": 500,
+            "msg": "Server Error"
+        }
+      ```
