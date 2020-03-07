@@ -156,7 +156,7 @@ This API is using email validator API
         }
         ```
 
-### 2. Get TODOS
+### 3. Get Todos
 
 * **URL**
   
@@ -237,3 +237,243 @@ This API is using email validator API
             "msg": "Server Error"
         }
       ```
+
+### 4. Add Todo
+
+* **URL**
+  
+  /todos
+
+* **METHOD**
+  
+  `POST`
+
+* **HEADERS**
+  
+  KEY:
+
+    * Token (the token you get after log-in)
+  
+* **REQUEST BODY**
+  
+  Using JSON
+
+  ```javascript
+  {
+        "title": "testing client",
+        "description": "test client",
+        "status": "Uncomplete",
+        "due_date": "2020-04-08T00:00:00.000Z"
+  }
+  ```
+
+* **SUCCESS RESPONSE**
+  
+  * CODE: 201
+  * Content:
+  
+    ```javascript
+    {
+        "id": 73,
+        "title": "testing client",
+        "description": "test client",
+        "status": "Uncomplete",
+        "due_date": "2020-04-08T00:00:00.000Z",
+        "UserId": 1,
+        "updatedAt": "2020-03-07T09:01:10.074Z",
+        "createdAt": "2020-03-07T09:01:10.074Z"
+    }
+    ```
+
+* **ERROR RESPONSE**
+  
+  * Validation Error
+    
+    * CODE: 400
+    
+    * Content:
+        
+        ```javascript
+        {
+            "status": 400,
+            "error": [
+                {
+                    "type": "Validation error",
+                    "msg": "Please input the title"
+                },
+                {
+                    "type": "Validation error",
+                    "msg": "Please input the description"
+                }
+            ]
+        }
+        ```
+
+  * Server Error
+    
+    * CODE: 500
+    
+    * Content:
+        
+        ```javascript
+        {
+            "status": 500,
+            "msg": "Server Error"
+        }
+        ```
+
+### 5. Get Todo by Id
+
+* **URL**
+  
+  /todos/_todoId_
+
+* **METHOD**
+  
+  `GET`
+
+* **HEADERS**
+  
+  KEY:
+
+    * Token (the token you get after log-in)
+
+* **SUCCESS RESPONSE**
+  
+  * CODE: 200 
+  * Content:
+  
+    ```javascript
+    {
+        "id": 73,
+        "title": "testing client",
+        "description": "test client",
+        "status": "Uncomplete",
+        "due_date": "2020-04-08T00:00:00.000Z",
+        "createdAt": "2020-03-07T09:01:10.074Z",
+        "updatedAt": "2020-03-07T09:01:10.074Z",
+        "UserId": 1
+    }
+    ```
+
+* **ERROR RESPONSE**
+  
+  * Not Found
+    
+    * CODE: 404
+    
+    * Content:
+        
+        ```javascript
+        {
+            "status": 404,
+            "msg": "404 Not Found"
+        }
+        ```
+
+  * Server Error
+    
+    * CODE: 500
+    
+    * Content:
+        
+        ```javascript
+        {
+            "status": 500,
+            "msg": "Server Error"
+        }
+        ```
+
+### 6. Edit Todo
+
+* **URL**
+  
+  /todos/_todoId_
+
+* **METHOD**
+  
+  `PUT`
+
+* **HEADERS**
+  
+  KEY:
+
+    * Token (the token you get after log-in)
+  
+* **REQUEST BODY**
+  
+  Using JSON
+
+  ```javascript
+  {
+        "title": "test error",
+        "description": "testing error",
+        "status": "complete",
+        "due_date": "2020-04-08T00:00:00.000Z"
+  }
+  ```
+
+* **SUCCESS RESPONSE**
+  
+  * CODE: 201
+  * Content:
+  
+    ```javascript
+    {
+        "title": "test error",
+        "description": "testing error",
+        "status": "complete",
+        "due_date": "2020-04-08T00:00:00.000Z",
+        "UserId": 1
+    }
+    ```
+
+* **ERROR RESPONSE**
+  
+  * Validation Error
+    
+    * CODE: 400
+    
+    * Content:
+        
+        ```javascript
+        {
+            "status": 400,
+            "error": [
+                {
+                    "type": "Validation error",
+                    "msg": "Please input the title"
+                },
+                {
+                    "type": "Validation error",
+                    "msg": "Please input the description"
+                }
+            ]
+        }
+        ```
+
+  * Not Found
+    
+    * CODE: 404
+    
+    * Content:
+        
+        ```javascript
+        {
+            "status": 404,
+            "msg": "404 Not Found"
+        }
+        ```
+
+  * Server Error
+    
+    * CODE: 500
+    
+    * Content:
+        
+        ```javascript
+        {
+            "status": 500,
+            "msg": "Server Error"
+        }
+        ```
