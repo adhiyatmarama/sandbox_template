@@ -12,7 +12,7 @@ This API is using email validator API
 
 * **METHOD**
   
-  `GET`
+  `POST`
 
 * **REQUEST BODY**
   
@@ -53,21 +53,21 @@ This API is using email validator API
     * Content:
         
       ```javascript
-            {
-                "status": 400,
-                "error": [
-                    {
-                        "path": "first_name",
-                        "type": "Validation error",
-                        "msg": "Please input your name"
-                    },
-                    {
-                        "path": "password",
-                        "type": "Validation error",
-                        "msg": "Please input the password"
-                    }
-                ]
-            }
+        {
+            "status": 400,
+            "error": [
+                {
+                    "path": "first_name",
+                    "type": "Validation error",
+                    "msg": "Please input your name"
+                },
+                {
+                    "path": "password",
+                    "type": "Validation error",
+                    "msg": "Please input the password"
+                }
+            ]
+        }
       ```
 
   * Email Validation Error
@@ -89,8 +89,69 @@ This API is using email validator API
 
         ```javascript
         {
-        "status": 400,
-        "msg": "Email not Found"
+            "status": 400,
+            "msg": "Email not Found"
         }
         ```
 
+### 2. Log In
+
+* **URL**
+  
+  /user/lo
+
+* **METHOD**
+  
+  `POST`
+
+* **REQUEST BODY**
+  
+  Using JSON
+
+  ```javascript
+  {
+	"email": "adhiyatma.pramayoga@gmail.com",
+	"password": "secretPassword123"
+  }
+  ```
+
+* **SUCCESS RESPONSE**
+  
+  * CODE: 200 
+  * Content:
+  
+    ```javascript
+    {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImVtYWlsIjoiYWRoaXlhdG1hLnByYW1heW9nYUBnbWFpbC5jb20iLCJpYXQiOjE1ODM1NzA3NjN9.IowZiHVsopN5XrvJ_U-l8hOai0LnkTWufgvnALDHm-s"
+    }
+    ```
+
+    **Save the token*
+
+* **ERROR RESPONSE**
+  
+  * Email not Found
+    
+    * CODE: 404
+    
+    * Content:
+        
+      ```javascript
+        {
+            "status": 404,
+            "msg": "wrong email"
+        }
+      ```
+
+  * Wrong Password
+    
+    *   CODE: 400
+
+    *   Content:
+
+        ```javascript
+        {
+            "status": 400,
+            "msg": "wrong password"
+        }
+        ```
