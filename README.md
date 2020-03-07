@@ -4,13 +4,15 @@ This is the documentation for using FANCY TODO API. The base url for this API is
 
 #### 1. Register (If you Already have an account, you can skip this part)
 
-* URL
+* **URL**
+
   /user/register
 
-* METHOD
+* **METHOD**
   `GET`
 
-* REQUEST BODY
+* **REQUEST BODY**
+
   Using JSON
   ```javascript
   {
