@@ -477,3 +477,65 @@ This API is using email validator API
             "msg": "Server Error"
         }
         ```
+
+### 7. Delete Todo
+
+* **URL**
+  
+  /todos/_todoId_
+
+* **METHOD**
+  
+  `DELETE`
+
+* **HEADERS**
+  
+  KEY:
+
+    * Token (the token you get after log-in)
+
+* **SUCCESS RESPONSE**
+  
+  * CODE: 200 
+  * Content:
+  
+    ```javascript
+    {
+        "id": 73,
+        "title": "testing client",
+        "description": "test client",
+        "status": "Uncomplete",
+        "due_date": "2020-04-08T00:00:00.000Z",
+        "createdAt": "2020-03-07T09:01:10.074Z",
+        "updatedAt": "2020-03-07T09:01:10.074Z",
+        "UserId": 1
+    }
+    ```
+
+* **ERROR RESPONSE**
+  
+  * Not Found
+    
+    * CODE: 404
+    
+    * Content:
+        
+        ```javascript
+        {
+            "status": 404,
+            "msg": "404 Not Found"
+        }
+        ```
+
+  * Server Error
+    
+    * CODE: 500
+    
+    * Content:
+        
+        ```javascript
+        {
+            "status": 500,
+            "msg": "Server Error"
+        }
+        ```
